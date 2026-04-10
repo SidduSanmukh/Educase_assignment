@@ -1,0 +1,35 @@
+{
+  "name": "educase_assignment",
+  "version": "1.0.0",
+  "description": "A backend NodeJs assignment for https://educase.io/",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SidduSanmukh/Educase_assignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SidduSanmukh/Educase_assignment/issues"
+  },
+  "homepage": "https://github.com/SidduSanmukh/Educase_assignment#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "fs": "^0.0.1-security",
+    "helmet": "^8.1.0",
+    "joi": "^18.1.2",
+    "morgan": "^1.10.1",
+    "mysql2": "^3.21.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
