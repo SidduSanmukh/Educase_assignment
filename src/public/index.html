@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>School API Guide</title>
+    <title>School Management API Guide</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -25,18 +25,47 @@
         border-radius: 5px;
         color: #22c55e;
       }
+      pre {
+        background: #0f172a;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        color: #e2e8f0;
+      }
     </style>
   </head>
+
   <body>
-    <h1>School Management API</h1>
-    <p>
-      This API allows you to add schools and fetch them sorted by proximity.
-    </p>
+    <h1>Node.js School Management API</h1>
 
     <div class="card">
-      <h2>Add School</h2>
-      <p><strong>Endpoint:</strong> <code>POST /api/addSchool</code></p>
-      <p><strong>Body:</strong></p>
+      <h2>Base URL</h2>
+      <p>
+        <strong>Root Path:</strong>
+        <p><code>https://educase-assignment-q4ex.onrender.com/</code></p>
+      </p>
+      <p>
+        This API is built using Node.js, Express.js, and MySQL to manage school data and sort schools based on proximity.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Database Structure (MySQL)</h2>
+      <p><strong>Table:</strong> <code>schools</code></p>
+      <pre>
+id (Primary Key)
+name (VARCHAR)
+address (VARCHAR)
+latitude (FLOAT)
+longitude (FLOAT)
+      </pre>
+    </div>
+
+    <div class="card">
+      <h2>Add School API</h2>
+      <p><strong>Endpoint:</strong> <code>POST https://educase-assignment-q4ex.onrender.com/api/addschool</code></p>
+      <p><strong>Functionality:</strong> Validates input and inserts a new school into the database.</p>
+      <p><strong>Payload:</strong></p>
       <pre>
 {
   "name": "ABC School",
@@ -44,22 +73,40 @@
   "latitude": 12.9716,
   "longitude": 77.5946
 }
-    </pre
-      >
+      </pre>
+      <p><strong>Validation:</strong> All fields must be non-empty and of correct data type.</p>
     </div>
 
     <div class="card">
-      <h2>List Schools (Nearest First)</h2>
+      <h2>List Schools API</h2>
+      <p><strong>Endpoint:</strong> <code>GET /listSchools</code></p>
       <p>
-        <strong>Endpoint:</strong>
-        <code>GET /api/listSchools?latitude=12.97&longitude=77.59</code>
+        <strong>Parameters:</strong>
+        <code>latitude</code>, <code>longitude</code>
+      </p>
+      <p>
+        <strong>Example:</strong>
+        <code>https://educase-assignment-q4ex.onrender.com/api/listSchools?latitude=12.9716&longitude=77.5946</code>
+      </p>
+      <p>
+        <strong>Functionality:</strong>
+        Fetches all schools and returns them sorted by distance from the user’s location.
+      </p>
+      <p>
+        <strong>Sorting Logic:</strong> Uses geographical distance calculation to sort nearest schools first.
       </p>
     </div>
 
     <div class="card">
-      <h2>Live API Base URL</h2>
-      <p><code id="baseUrl">/</code></p>
+      <h2>Deployment & Testing</h2>
+      <ul>
+        <li>Deployed on render and used railone for MySQL to make it live.</li>
+        <li>Created a Postman collection for testing both endpoints</li>
+        <li>Includes sample requests and expected responses</li>
+      </ul>
     </div>
+
+   
 
     <script>
       document.getElementById("baseUrl").innerText = window.location.origin;
